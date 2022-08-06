@@ -1,0 +1,18 @@
+1.增加用名名
+git config --global user.name "yuanrongfa"
+
+2.增加邮箱
+git config --global user.email "yuanrongfa@qq.com"
+
+3.查看一些配置参数
+git config --list
+
+4.删除配置参数
+git config --global --edit
+
+
+手动安装vs code后，可能在共享那里也会提示要下载安装，这时候把全系统环境变量加入到系统path，就是加入如下这行，
+增加后再重启一下电脑就可以了。
+D:\Program Files\Git\bin
+
+第一次在vscode那里做同步的话，要注意看是否有弹出来vscode和github网页的互动受权，要点同意才可以成功同步。
