@@ -1,3 +1,31 @@
+import pandas as pd
+path="d:\\abc\\1.xlsx"
+
+打开xlsx文件
+df=pd.read_excel(path)
+
+跳过第几行脏表头,0表示第1行，下面就是跳过第1行了;header=None表示不用表头。
+df=pd.read_excel(path,header=1)
+
+无表头时，手动添加字段：
+df=pd.read_excel(path,header=None)
+pd.columns=['name','tel','address']
+
+
+
+查看文件的属性，如有多少行，多少列
+print(df.shape)
+
+查看前三行与后三行
+print(df.head(3))
+print(df.tail(3))
+
+查看行的字段
+print(df.columns)
+
+
+
+
 例如df有很多列字段,如:a1,a2,a3,a4,a5.....
 只要指定的那些列 df=df[['a1','a3']]     注意双方号。
 转换制表符\t   df=df['a1'].str.replace(r'\t','',regex=True)     注意制表符的杠没错,True为首字母大字。
