@@ -11,7 +11,12 @@ df=pd.read_excel(path,header=1)
 df=pd.read_excel(path,header=None)
 pd.columns=['name','tel','address']
 
-
+可以统计出有多少行记录groupby
+print(df.groupby('姓名').size())
+下面这行，就可以把姓名里的‘袁荣发’的记录全部打印出来
+print(df.groupby('姓名').get_group('袁荣发'))
+分组求和，as_inde=False表示不用'姓名'为索引。
+print(df.groupby('姓名',as_index=False)['分数'].sum())
 
 查看文件的属性，如有多少行，多少列
 print(df.shape)
