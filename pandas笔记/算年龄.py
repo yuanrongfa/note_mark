@@ -7,3 +7,5 @@ how_old = today_year - birth_year
 print('今年{}岁'.format(how_old))
 
 
+# 以下是发哥总结的
+print(datetime.date.today().year-int('441900198111286733'[6:10]))
