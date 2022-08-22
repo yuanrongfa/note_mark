@@ -6,10 +6,10 @@ ix()
 import pandas as pd
 import numpy as np
 #生成指定日期
-datas = pd.data_range('20180101', periods=5)
+datas = pd.date_range('20180101', periods=5)
 df = pd.DataFrame(
-    np.arange(30).reshape(5,6), index=datas,
-    columns=['A','B','C','D','E','F'])
+        np.arange(30).reshape(5,6),index=datas, 
+        columns=['A','B','C','D','E','F'])
 
 """
 loc()方法
@@ -22,11 +22,14 @@ df.loc['20180103', 'B']
 df.loc[:,'B']
 df.loc['20180103':,'B']
 df.loc['20180103':,['B', 'D']]
-#打印某些行值
+#打印某行值
+df.loc['20180101', :]
+#打印某些行
 df.loc['20180103':,:]
 
 """
 iloc()方法
+位置索引
 """
 #获取某个数据
 df.iloc[1,2]
@@ -37,7 +40,7 @@ df.iloc[:,[1,3]]
 #获取某行
 df.iloc[1,:]
 #获取某些行
-df.iloc[[1,3,4],:]
+df.iloc[[1,2,4],:]
 
 """
 ix()方法
@@ -49,15 +52,10 @@ df.ix['20180101':'20180103', [2,3]]
 df.ix[:,[2]]
 #访问某些列
 df.ix[:,[2, 4]]
-#访问某些行
+#访问某行
 df.ix[1,:]
 #访问某些行
 df.ix[[1,3], :]
-
-
-
-
-
 
 
 

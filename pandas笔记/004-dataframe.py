@@ -5,13 +5,13 @@ DataFrame(数据框)
 import pandas as pd
 
 df_1 = pd.DataFrame({'age':[10,11,12],
-                     'name':['Tim', 'Tom', 'Rose'],
+                     'name':['tim', 'tom', 'rose'],
                      'income':[100,200,300]},
-                    index=['person1', 'person2', 'person3'])
+                     index=['person1', 'person2', 'person3'])
 print(df_1)
 
 """
-DataFrame的属性
+dataframe的属性
 """
 #行索引
 df_1.index
@@ -21,6 +21,42 @@ df_1.columns
 df_1.values
 
 df_1 = pd.DataFrame({'age':[10,11,12],
-                     'name':['Tim','Tom','Rose'],
+                     'name':['tim', 'tom', 'rose'],
                      'income':[100,200,300]})
 print(df_1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
