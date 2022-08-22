@@ -62,6 +62,11 @@ del df['age']
 #删除行
 df.drop('person3', axis=0, inplace=True)
 
+#发哥的补充，删除列，不会修改原来的df
+df.drop(columns='客户姓名')
+
+#发哥的补充，删除‘客户名称'后，把'贷款余额'转成浮点型，最后求和。
+df.drop(columns='客户名称')['贷款余额'].astype(float).sum()
 
 
 
