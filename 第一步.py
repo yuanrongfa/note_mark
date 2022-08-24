@@ -7,14 +7,15 @@ import datetime
 
 
 # 账户机构号
-org_id = '6093'
+org_id = '6095'
 #file = r'/Users/yuan/all.xlsx'
 file = r'd:\all.xlsx'
 file_huji = r'd:\玉凤坤平户籍.xlsx'
 
-print('正在读取总表请稍后...')
+print('正在读取总表,过程大约需要十分钟,请稍后...')
 df = pd.read_excel(file,header=0,usecols=['账户机构','证件号码','贷款金额','贷款余额'],\
                    dtype=str)
+print('总表读取完成，正在处理df_in数据表，请稍候...')
     
 # 删除制表符
 df['账户机构'] = df['账户机构'].str.replace(r'\t', '' ,regex=True)
@@ -55,6 +56,7 @@ df_in = df_in.groupby('证件号码',as_index=False).sum()
 #print('正在导出df_in表，请稍后...')
 #df_in.to_excel(r'/Users/yuan/df_in.xlsx')
 #df_in.to_excel(r'd:\df_in.xlsx')
+print('df_in数据表处理结果，正在处理df_out数据表，请稍候...')
 # ------------------------------------df_in的结束---------------------------
 
 # ------------------------------------df_out的开始--------------------------
@@ -79,11 +81,11 @@ df_out = df_out.groupby('证件号码',as_index=False).sum()
 #print('正在导出df_out表，请稍后...')
 #df_out.to_excel(r'/Users/yuan/df_out.xlsx')
 #df_out.to_excel(r'd:\df_out.xlsx')
+print('数据表df_out处理结束，正在处理明细表数据，请稍后...')
 # ------------------------------------df_out的结束---------------------------
 
 
 # ------------------------------------匹配的开始-----------------------------
-print('正在读取玉凤坤平户籍文件，请稍后...')
 df_huji = pd.read_excel(file_huji,header=0,dtype=str)
 df_huji = df_huji[df_huji['机构']==org_id]
 
@@ -110,7 +112,7 @@ df_results.rename(columns = {"贷款金额":"总贷款金额", '贷款余额':"�
           inplace=True)
 
 df_results.to_excel(f'd:\\{org_id}.xlsx')
-
+print('数据表匹配结束，正在生成df_info数据表，请稍后...')
 # --------------------------------匹配的结束--------------------------------
 
 
@@ -151,6 +153,6 @@ for pianqu in list_pianqu:
                                        len(df_tmp[df_tmp['总贷款余额']>0]),\
                                        '',\
                                        '']
-
-
+df_info.to_excel(f'd:\\{org_id}_info.xlsx')
+print('处理完成，版权归田阳农商行业务开发部所有。')
 
