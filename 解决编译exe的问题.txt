@@ -1,0 +1,8 @@
+解决步骤
+1. 打开生成的 .spec 文件在表头输入以下代码
+
+import sys 
+sys.setrecursionlimit(sys.getrecursionlimit()*5)
+
+
+2. 保存后，在cmd中运行 pyinstaller myprog.spec

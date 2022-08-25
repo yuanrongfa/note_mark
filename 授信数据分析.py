@@ -14,7 +14,7 @@ if datetime.date.today().year > 2022:
 org_id = input('请输入需要分析的机构号:')
 #file = r'/Users/yuan/all.xlsx'
 file = r'./in/all.xlsx'
-file_huji = r'./in/玉凤坤平户籍.xlsx'
+file_huji = r'./in/户籍.xlsx'
 
 print('正在读取总表,过程大约需要十分钟,请稍后...')
 df = pd.read_excel(file,header=0,usecols=['账户机构','证件号码','贷款金额','贷款余额'],\
@@ -115,7 +115,7 @@ del df_results['证件号码']
 df_results.rename(columns = {"贷款金额":"总贷款金额", '贷款余额':"总贷款余额"},
           inplace=True)
 
-df_results.to_excel(f'./out/{org_id}明细表.xlsx')
+df_results.to_excel(f'./out/{org_id}明细表.xlsx',index=False)
 print('数据表匹配结束，正在生成df_info数据表，请稍后...')
 # --------------------------------匹配的结束--------------------------------
 
@@ -157,7 +157,7 @@ for pianqu in list_pianqu:
                                        len(df_tmp[df_tmp['总贷款余额']>0]),\
                                        '',\
                                        '']
-df_info.to_excel(f'./out/{org_id}汇总表.xlsx')
+df_info.to_excel(f'./out/{org_id}汇总表.xlsx',index=False)
 temps = input('处理完成,按回车键退出程序，版权归田阳农商行业务拓展部所有。\n')
 
 
