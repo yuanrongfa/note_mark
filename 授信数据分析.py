@@ -13,6 +13,8 @@ if datetime.date.today().year > 2022:
 #org_id = '6095'
 org_id = input('请输入需要分析的机构号:')
 #file = r'/Users/yuan/all.xlsx'
+#file = r'd:\all.xlsx'
+#file_huji = r'd:\户籍.xlsx'
 file = r'./in/all.xlsx'
 file_huji = r'./in/户籍.xlsx'
 
@@ -115,6 +117,7 @@ del df_results['证件号码']
 df_results.rename(columns = {"贷款金额":"总贷款金额", '贷款余额':"总贷款余额"},
           inplace=True)
 
+#df_results.to_excel(f'd:\{org_id}明细表.xlsx',index=False)
 df_results.to_excel(f'./out/{org_id}明细表.xlsx',index=False)
 print('数据表匹配结束，正在生成df_info数据表，请稍后...')
 # --------------------------------匹配的结束--------------------------------
@@ -130,6 +133,9 @@ df_info = pd.DataFrame(columns=['机构','片区','户数','人数合计','0-17�
     
 
 list_pianqu = list(set(df_results['片区']))
+
+#pianqu='懂立村' # 这行记得到时候注释掉 XXXXXXXXXXXXXXXXXXXXXXXXX
+
 for pianqu in list_pianqu:
     df_tmp = df_results[df_results['片区']==pianqu]
     # 增加'今年','出生年'，'年龄'，以便统计数量
@@ -143,20 +149,21 @@ for pianqu in list_pianqu:
                                        len(df_tmp[df_tmp['年龄'] < 18]),\
                                        len(df_tmp[(df_tmp['年龄'] > 17) & (df_tmp['年龄'] < 60)]),\
                                        len(df_tmp[df_tmp['年龄'] > 59]),\
-                                       len(df_tmp[df_tmp['本机构贷款金额']>0]),\
+                                       len(df_tmp[df_tmp['本机构贷款金额']>0].groupby('户号',as_index=False)),\
                                        df_tmp[df_tmp['本机构贷款金额']>0]['本机构贷款金额'].sum(),\
-                                       len(df_tmp[df_tmp['本机构贷款余额']>0]),\
+                                       len(df_tmp[df_tmp['本机构贷款余额']>0].groupby('户号',as_index=False)),\
                                        df_tmp[df_tmp['本机构贷款余额']>0]['本机构贷款余额'].sum(),\
                                        '',\
                                        '',\
-                                       len(df_tmp[df_tmp['本机构外贷款金额']>0]),\
+                                       len(df_tmp[df_tmp['本机构外贷款金额']>0].groupby('户号',as_index=False)),\
                                        df_tmp[df_tmp['本机构外贷款金额']>0]['本机构外贷款金额'].sum(),\
-                                       len(df_tmp[df_tmp['本机构外贷款余额']>0]),\
+                                       len(df_tmp[df_tmp['本机构外贷款余额']>0].groupby('户号',as_index=False)),\
                                        df_tmp[df_tmp['本机构外贷款余额']>0]['本机构外贷款余额'].sum(),\
-                                       len(df_tmp[df_tmp['总贷款金额']>0]),\
-                                       len(df_tmp[df_tmp['总贷款余额']>0]),\
+                                       len(df_tmp[df_tmp['总贷款金额']>0].groupby('户号',as_index=False)),\
+                                       len(df_tmp[df_tmp['总贷款余额']>0].groupby('户号',as_index=False)),\
                                        '',\
                                        '']
+#df_info.to_excel(f'd:\{org_id}汇总表.xlsx',index=False)
 df_info.to_excel(f'./out/{org_id}汇总表.xlsx',index=False)
 temps = input('处理完成,按回车键退出程序，版权归田阳农商行业务拓展部所有。\n')
 
