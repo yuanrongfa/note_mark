@@ -57,6 +57,7 @@ while i < len(df):
                 
                 i = j
                 
+                # 以下是后期处理的核心位置
                 print(list_tmp)    
    
         # 这个else用于记录最后一条不输入的补充  
@@ -66,6 +67,7 @@ while i < len(df):
             
             b = False
             
+            # 以下是后期处理的核心位置
             print(list_tmp)
         
 
