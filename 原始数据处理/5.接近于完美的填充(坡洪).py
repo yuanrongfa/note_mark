@@ -27,7 +27,7 @@ i为第一个游标，j为第二个游标
 
 import pandas as pd
 
-file = r"C:\Users\HiWin11\Desktop\20220830\坡洪镇.xlsx"
+file = r"C:\Users\HiWin11\Desktop\20220830\头塘街.xlsx"
 
 df = pd.read_excel(file)
 
@@ -122,5 +122,5 @@ while i < len(df):
                 df.loc[index_x,'户号'] = name_id
 
 
-df.to_excel(r'C:\Users\HiWin11\Desktop\20220830\坡洪镇_已完成.xlsx',index=False)
+df.to_excel(r'C:\Users\HiWin11\Desktop\20220830\头塘街--已处理.xlsx',index=False)
 
