@@ -1,11 +1,13 @@
 '''
-合并list下所有的.xlsx文件，并把‘户籍.xlsx’输出来out文件夹中。
+合并list下所有的.xlsx文件，并把‘户籍.xlsx’输出来list_out文件夹中。
 '''
 
 
 import pandas as pd
 
 import os
+
+print('提示：需要用到【list】、【list_out】文件夹。\n \n')
 
 # 当前程序目录必须要创建一个list文件夹，用于存在每个机构的原始数据，用于合并。
 path = os.path.abspath('./list/')
