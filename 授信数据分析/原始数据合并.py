@@ -34,6 +34,6 @@ for list_i in list_tmp:
 #print(df_new)
 
 print('正在生成户籍总表...')
-df_new.to_excel('.//out//户籍.xlsx',index=False)
+df_new.to_excel('.//list_out//户籍.xlsx',index=False)
 
 temps = input('数据合并完成,按回车键退出程序，版权归田阳农商行业务拓展部所有。\n')
