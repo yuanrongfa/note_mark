@@ -9,6 +9,8 @@ import pandas as pd
 
 import os
 
+import datetime
+
 if datetime.date.today().year > 2023:
     print('程序需要更新库文件!')
     exit()
