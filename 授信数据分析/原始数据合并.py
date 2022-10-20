@@ -7,6 +7,10 @@ import pandas as pd
 
 import os
 
+if datetime.date.today().year > 2023:
+    print('程序需要更新库文件!')
+    exit()
+
 print('提示：需要用到【list】、【list_out】文件夹。\n \n')
 
 # 当前程序目录必须要创建一个list文件夹，用于存在每个机构的原始数据，用于合并。

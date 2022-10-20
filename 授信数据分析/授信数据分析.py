@@ -6,7 +6,7 @@ import datetime
 import openpyxl
 from openpyxl.styles import Font, Color, colors, Border, Side, Alignment
 
-if datetime.date.today().year > 2022:
+if datetime.date.today().year > 2023:
     print('程序需要更新库文件!')
     exit()
 
