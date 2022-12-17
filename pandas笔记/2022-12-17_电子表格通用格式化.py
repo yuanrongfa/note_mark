@@ -32,11 +32,11 @@ df=pd.read_excel(Filepath,dtype=str)
 
 for lis_tmp in list(df.columns):
     
-    print('正常处理%s...\n'%(lis_tmp))
+    print('正在处理%s...\n'%(lis_tmp))
     
     df[lis_tmp]=df[lis_tmp].str.replace(r'\t','',regex=True)
     
-print('处理结束，正常导出文件...')
+print('处理结束，正在导出文件...')
 
 df.to_excel(Folderpath + '格式调整后-' + Filename,index=False)
 
