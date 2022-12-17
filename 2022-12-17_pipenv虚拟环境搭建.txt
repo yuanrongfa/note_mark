@@ -1,0 +1,21 @@
+# 清华源
+https://pypi.tuna.tsinghua.edu.cn/simple/
+
+# 先安装pipenv先。
+pip install pipenv
+
+# 可以指定的版本
+pipenv install -python 3.8.10
+
+# 应该说新环境后，什么库都没有的，这两个库要先添加
+pipenv install pyinstaller
+pipenv install removebg
+
+# 启动虚拟环境，注意cmd的标题应该会有不同的
+pipenv shell
+
+# 还要添加其它用到的库，研究是用pipevn install 库，还是用pip install 库？有待考察。
+pip install 库...
+
+打包程序了，加个F参数，打包成单个文件吧
+pyinstaller -F hello.py
