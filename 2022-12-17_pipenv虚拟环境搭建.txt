@@ -4,6 +4,10 @@ https://pypi.tuna.tsinghua.edu.cn/simple/
 # 先安装pipenv先。
 pip install pipenv
 
+当前文件夹下就是对应的作用的环境,在d:\tmp\下安装环境，其实不这样做也行，直接pipenv shell的话也是可以的，这样它就会自动先产生环境。
+d:\tmp
+pipenv install
+
 # 可以指定的版本
 pipenv --python 3.8.10
 
@@ -11,25 +15,26 @@ pipenv --python 3.8.10
 pipenv install pyinstaller
 pipenv install removebg
 
+# 其实可以在当前目录下，未进pipenv shell直接用pipenv install pandas也是可以安装的。如果进了pipenv shell后，可以直接用pip install pandas安装就行了，效果是一样的。
+(未进环境)pipenv install pandas
+(进了环境)pip install pandas
+
 # 启动虚拟环境，注意cmd的标题应该会有不同的
 pipenv shell
-
-# 还要添加其它用到的库，研究是用pipevn install 库，还是用pip install 库？有待考察。
-pip install 库...
 
 打包程序了，加个F参数，打包成单个文件吧
 pyinstaller -F hello.py
 
+# 删除环境
+（未进环境)pipenv --rm
 
-
+# 获取当前配置文件位置
+pipenv --venv
 
 pipenv返回--system is intended to be used for pre-existing Pipfile installation提示时，删除原venv后重建即可
 
-pipenv --venv 获取当前venv
+ 获取当前venv
 rm -rf <$venv>
 pipenv shell 即可
 
-作者：redstar
-链接：https://www.jianshu.com/p/638d6c9c2671
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
